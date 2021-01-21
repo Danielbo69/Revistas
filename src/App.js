@@ -14,9 +14,9 @@ function App() {
       {/* <Login/> */}
 
       {<Navbar />}
-      { <Title />}
-      {     /* <UploadForm />*/
-      }      <ImageGrid setSelectedImg={setSelectedImg} />
+      {/* { <Title />} */}
+      {<UploadForm />}      
+      <ImageGrid setSelectedImg={setSelectedImg} />
       { selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
       )}

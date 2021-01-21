@@ -33,6 +33,15 @@
 
 /* upload form styles */
 
+.forms {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 6px;
+  padding: 40px;
+}
+
 form {
   padding: 15px;
 }
@@ -50,23 +59,18 @@ form {
 
 /* image grid styles */
 
-.img-grid img {
-  width: 100%;
+.ContentImg {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 40px;
 }
 
-.img-wrap {
-  overflow: hidden;
-  height: 0;
-  padding: 50% 0;
-  /* padding controls height, will always be perfectly square regardless of width */
-  position: relative;
-  opacity: 0.8;
-}
-.img-wrap img {
-  max-width: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
+.ContentImg img{
+  width: 100px;
+  height: 100px;
 }
 
 /* modal styles */
@@ -158,6 +162,11 @@ form {
   .navbar-expand-sm .navbar-toggler {
     display: none;
   }
+}
+
+.dropdown-menu {
+  margin: -75px !important;
+  margin-top: 0 !important;
 }
 
 /*Login*/

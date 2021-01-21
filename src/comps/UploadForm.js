@@ -10,7 +10,7 @@ const UploadForm = () => {
 
   const handleChange = (e) => {
     let selected = e.target.files[0];
-
+    console.log(selected)
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       setError('');
@@ -21,47 +21,39 @@ const UploadForm = () => {
   };
 
   const handleSubmit = (e) => {
-
+    console.log(e)
   }
 
 
   return (
-    <Form noValidate onSubmit={handleSubmit} className="row">
-      <Form.Group className="col-4" controlId="formBasicNameMagazine">
-        <Form.Label>Magazine name</Form.Label>
-        <Form.Control type="text" placeholder="Magazine name" />
-        {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-          </Form.Text> */}
-      </Form.Group>
-      <Form.Group className="col-4" controlId="formBasicInformation">
-        <Form.Label>Information of magazine</Form.Label>
-        <Form.Control type="text" placeholder="Information" />
-      </Form.Group>
-      <Form.Group className="col-4" controlId="formBasicCompany">
-        <Form.Label>Company name</Form.Label>
-        <Form.Control type="text" placeholder="Company" />
-      </Form.Group>
-      <Form.Group className="col-3" controlId="formBasicPages">
-        <Form.Label>Pages</Form.Label>
-        <Form.Control type="number" placeholder="Pages" />
-      </Form.Group>
-      <Form.Group className="col-3" controlId="formBasicFile">
-        <Form.Label>File</Form.Label>
-        <Form.Control type="file" onChange={handleChange} placeholder="UploadFile" />
-        {/* <input type="file" onChange={handleChange} /> */}
-        <div className="output">
-          {error && <div className="error">{error}</div>}
-          {file && <div>{file.name}</div>}
-          {file && <ProgressBar file={file} setFile={setFile} />}
-        </div>
-      </Form.Group>
-      <FormGroup className="col-12 botonSubmit">
-        <Button variant="primary" type="submit">
-          Submit
+    <div className="Container" style={{ margin: '30px' }}>
+      <label style={{ textAlign: 'center', width: '100%' }}>Upload Magazine</label>
+      <Form noValidate className="row forms">
+        <Form.Group className="col-md-6" controlId="formBasicNameMagazine">
+          <Form.Label>Magazine name</Form.Label>
+          <Form.Control type="text" placeholder="Magazine name" />
+        </Form.Group>
+        <Form.Group className="col-md-6" controlId="formBasicCategory">
+          <Form.Label>Category</Form.Label>
+          <Form.Control type="text" placeholder="Category" />
+        </Form.Group>
+        <Form.Group className="col-md-12" style={{marginTop: '30px'}} controlId="formBasicFile">
+          <Form.Label style={{margin: '10px'}}>Upload File</Form.Label>
+          <Form.Control type="file" onChange={handleChange} placeholder="UploadFile" />
+          {/* <input type="file" onChange={handleChange} /> */}
+          <div className="output">
+            {error && <div className="error">{error}</div>}
+            {file && <div>{file.name}</div>}
+            {file && <ProgressBar file={file} setFile={setFile} />}
+          </div>
+        </Form.Group>
+        <FormGroup className="col-12 botonSubmit" style={{marginTop: '30px'}}>
+          <Button variant="primary" onSubmit={handleSubmit}>
+            Submit
       </Button>
-      </FormGroup>
-    </Form>
+        </FormGroup>
+      </Form>
+    </div>
   );
 }
 
