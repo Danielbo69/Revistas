@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       {/* <Login/> */}
-      {/* <Navbar /> */}
-      {/* <Title /> */}
-      <UploadForm />
-      {/* <ImageGrid setSelectedImg={setSelectedImg} />
+      <Navbar />
+      <Title />
+      {/* <UploadForm /> */}
+      <ImageGrid setSelectedImg={setSelectedImg} />
       { selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-      )} */}
+      )}
     </div>
   );
 }

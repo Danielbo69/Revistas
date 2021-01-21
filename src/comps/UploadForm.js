@@ -48,7 +48,7 @@ const UploadForm = () => {
       </Form.Group>
       <Form.Group className="col-3" controlId="formBasicFile">
         <Form.Label>File</Form.Label>
-        <Button type="file" onChange={handleChange} placeholder="UploadFile"></Button>
+        <Form.Control type="file" onChange={handleChange} placeholder="UploadFile" />
         {/* <input type="file" onChange={handleChange} /> */}
         <div className="output">
           {error && <div className="error">{error}</div>}
