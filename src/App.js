@@ -4,19 +4,21 @@ import UploadForm from './comps/UploadForm';
 import ImageGrid from './comps/Home';
 import Modal from './comps/Modal';
 import Navbar from './comps/Navbar'
+import Login from './comps/Login'
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
 
   return (
     <div className="App">
-      <Navbar />
-      <Title />
+      {/* <Login/> */}
+      {/* <Navbar /> */}
+      {/* <Title /> */}
       <UploadForm />
-      <ImageGrid setSelectedImg={setSelectedImg} />
+      {/* <ImageGrid setSelectedImg={setSelectedImg} />
       { selectedImg && (
         <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-      )}
+      )} */}
     </div>
   );
 }

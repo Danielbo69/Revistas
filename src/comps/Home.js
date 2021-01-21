@@ -21,7 +21,7 @@ const Home = () => {
    </div>*/
   return (
     <div className='row'>
-      <div className='col-3'>
+      <div className='col-4'>
         <div className='img-grid'>
           <img src="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg" />
         </div>
@@ -30,7 +30,7 @@ const Home = () => {
         </div>
         <div className='row'>
           <div className='col-sm-6 button'>
-            <button>Ver Detalles</button>
+            <button>Detalles</button>
           </div>
           <div className='col-sm-6 button'>
             <button>Ver Pdf</button>
