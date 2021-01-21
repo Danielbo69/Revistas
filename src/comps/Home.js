@@ -1,12 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import useFirestore from '../hooks/useFirestore';
-
+import Title from './Title'
+import Navbar from './Navbar'
 const space = "                            "
 
 const Home = () => {
-  const { docs } = useFirestore('bookies');
+  const { docs } = useFirestore('books');
   return (
     <div className="container">
+      <Navbar />
+      <Link to="/login">Login</Link>
+
+      <Title />
       <div className='ContentImg row'>
         {docs && docs.map(doc => (
           <div className="col-md-3" key={doc.id}>
