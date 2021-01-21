@@ -63,9 +63,7 @@ form {
   opacity: 0.8;
 }
 .img-wrap img {
-  min-width: 100%;
-  min-height: 100%;
-  max-width: 150%;
+  max-width: 50%;
   position: absolute;
   top: 0;
   left: 0;
@@ -119,7 +117,6 @@ form {
   margin: 1px;
 }
 
-
 /* Navbar */
 
 .navbar {
@@ -140,9 +137,9 @@ form {
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: box-shadow .15s ease-in-out;
-  outline:none;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
+  outline: none;
 }
 
 .navbar-toggler:focus {
@@ -159,145 +156,182 @@ form {
 
 @media (min-width: 960px) {
   .navbar-expand-sm .navbar-toggler {
-      display: none;
+    display: none;
   }
 }
 
 /*Login*/
 
 /**========= ANIMACION =========**/
-.animated {-webkit-animation-duration: 2s;animation-duration: 2s;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
-@-webkit-keyframes fadeInDown {0% {opacity:0;-webkit-transform:translateY(-20px);}100% {opacity: 1;-webkit-transform: translateY(0);}}
-@keyframes fadeInDown {0% {opacity:0;transform: translateY(-20px);}100% {opacity: 1;transform: translateY(0);}}
-.fadeInDown {-webkit-animation-name: fadeInDown;animation-name: fadeInDown;}
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
 
 /***** CSS *****/
-html {position: relative;min-height: 100%;}
-body {margin-bottom: 60px;font-family:'SourceSansPro-Regular',sans-serif;}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+  font-family: "SourceSansPro-Regular", sans-serif;
+}
 
 /** HEADER **/
 .nav {
-    background-color: #FFFFFF;
-    width: auto;
-	  height: 40px;
-    /* padding-top: 15px; */
-    cursor: default;
-	  border-bottom: 1px solid #eee;
+  background-color: #ffffff;
+  width: auto;
+  height: 40px;
+  /* padding-top: 15px; */
+  cursor: default;
+  border-bottom: 1px solid #eee;
 }
 
 #titl {
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    opacity: 1;
-    position: relative;
-    top: -14px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 1;
+  position: relative;
+  top: -14px;
 }
 
-#titl:hover{
-    padding-bottom: 0;
-    border-bottom: none;
+#titl:hover {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 #ima {
-	margin-top: 0;
+  margin-top: 0;
 }
 
-#im_he:hover{
-	background-color: #fff;
+#im_he:hover {
+  background-color: #fff;
 }
 
 /**** SESION ****/
-#p-ses{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    width: 310px;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 6px;
-    padding-bottom: 40px;
+#p-ses {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  width: 310px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 6px;
+  padding-bottom: 40px;
 }
 
 #ses {
-	position: relative;
-  	background: #ffffff;
-  	max-width: 260px;
-  	width: 100%;
-	margin: 0 auto;
-    top: 20px;
+  position: relative;
+  background: #ffffff;
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+  top: 20px;
 }
 
 #ahr {
-    display: block;
-    margin-top: 32px;
-    float: right;
-    margin-right: 25px;
-    color: #a4a4a4;
-    text-decoration: none;
-    font-style: italic;
+  display: block;
+  margin-top: 32px;
+  float: right;
+  margin-right: 25px;
+  color: #a4a4a4;
+  text-decoration: none;
+  font-style: italic;
 }
 
 #p-title {
-  text-align:center;
+  text-align: center;
   padding: 10px;
 }
 
 #textmuted {
-  margin-top:22px;color:#FFF;
+  margin-top: 22px;
+  color: #fff;
 }
 .inpt {
-    outline: none;
-    display: block;
-    width: 100%;
-    border: 1px solid #d9d9d9;
-    border-radius: 2px;
-	  margin: 0 0 20px;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    font-size:15px;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 15px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .inpt:focus {
-    border: 1px solid #020642;
-    color: #333333;
+  border: 1px solid #020642;
+  color: #333333;
 }
 
 .bton {
-    cursor: pointer;
-    background: #020642;
-    width: 100%;
-    border: 0;
-    padding: 10px 15px;
-    color: #ffffff;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+  cursor: pointer;
+  background: #020642;
+  width: 100%;
+  border: 0;
+  padding: 10px 15px;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 .bton:hover {
-    background: #a1a1a1;
+  background: #a1a1a1;
 }
 
-.lb {margin-top: 5px;text-decoration:none;}
-.lb:hover {text-decoration:none;}
+.lb {
+  margin-top: 5px;
+  text-decoration: none;
+}
+.lb:hover {
+  text-decoration: none;
+}
 
 /* FOOTER */
 .footer {
-    position: absolute;
-    width: 100%;
-	  bottom:0;
-    background-color: #020642;
-	  border-top: 1px solid #ddd;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #020642;
+  border-top: 1px solid #ddd;
 }
 
 #reqOutput {
-    color: #ff6363;
-    font-size: 12px;
-    line-height: 1.2;
-    display: none;
-    margin-bottom: 15px;
-    text-align: center;
+  color: #ff6363;
+  font-size: 12px;
+  line-height: 1.2;
+  display: none;
+  margin-bottom: 15px;
+  text-align: center;
 }
-
 
 .container .text-muted {
   margin: 20px 0;
@@ -308,37 +342,28 @@ body {margin-bottom: 60px;font-family:'SourceSansPro-Regular',sans-serif;}
   padding-left: 15px;
 }
 
-code {font-size: 80%;}
+code {
+  font-size: 80%;
+}
 
 /**** MEDIAS QUERIES ****/
 /* Portrait */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-	.footer {
-    	bottom: -56px;
-	}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .footer {
+    bottom: -56px;
+  }
 }
 
 /* Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: landscape) {
-	.footer {
-    	bottom: -85px;
-	}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .footer {
+    bottom: -85px;
+  }
 }
 
 /* S3 Landscape */
-@media screen 
-  and (device-width: 320px) 
-  and (device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) {
-	.footer {
-    	bottom: -105px !important;
-	}	
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
+  .footer {
+    bottom: -105px !important;
+  }
 }

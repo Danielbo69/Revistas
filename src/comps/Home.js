@@ -2,39 +2,42 @@ import React from 'react';
 import useFirestore from '../hooks/useFirestore';
 import { motion } from 'framer-motion';
 
-const Home = () => {
+const space = "                            "
 
-  /* <div className="img-grid">
-  const { docs } = useFirestore('books');
-     {docs && docs.map(doc => (
-       <motion.div className="img-wrap" key={doc.id}
-         layout
-         whileHover={{ opacity: 1 }} s
-         onClick={() => setSelectedImg(doc.url)}
-       >
-         <motion.img src={doc.url} alt="imagen"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 1 }} />
-       </motion.div>
-     ))}
-   </div>*/
+const Home = ({ setSelectedImg, selectedImg }) => {
+  const { docs } = useFirestore('bookies');
+  const handleClick = (e) => {
+    if (e.target.classList.contains("backdrop")) {
+      setSelectedImg(null);
+    }
+  }
   return (
     <div className='row'>
-      <div className='col-4'>
+      <div className='col-3'>
         <div className='img-grid'>
-          <img src="https://hdwallpaperim.com/wp-content/uploads/2017/08/25/461264-reactJS-Facebook-JavaScript-minimalism-artwork-simple_background-748x421.jpg" />
-        </div>
-        <div className='info-grid'>
-          <p>informacion de la revista</p>
-        </div>
-        <div className='row'>
-          <div className='col-sm-6 button'>
-            <button>Detalles</button>
-          </div>
-          <div className='col-sm-6 button'>
-            <button>Ver Pdf</button>
-          </div>
+          {docs && docs.map(doc => (
+            <div className="img-wrap" key={doc.id}
+            /*onClick={() => setSelectedImg(doc.url)}*/
+            >
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Pdf-2127829.png" alt="uploaded pdf"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              />
+              <div className='info-grid'>
+                <p>informacion de la revista</p>
+              </div>
+              <div className='row'>
+                <div className='col-sm-6 button'>
+                  <button>Detalles</button>
+                </div>
+                <div className='col-sm-6 button'>
+                  <button onClick={() => setSelectedImg(doc.url)}>Ver Pdf</button>
+                </div>
+              </div>
+            </div>
+
+          ))}
         </div>
       </div>
     </div>
