@@ -1,8 +1,8 @@
 import React from 'react';
 import useFirestore from '../hooks/useFirestore';
-import Title from './Title'
-import UploadForm from './UploadForm'
-import Navbar from './Navbar'
+import Title from '../comps/Title'
+import UploadForm from '../comps/UploadForm'
+import Navbar from '../comps/Navbar'
 import db from '../firebase/config'
 import { Link } from 'react-router-dom';
 const space = "                            "
@@ -12,8 +12,10 @@ const Home = () => {
     return (
         <div className="container">
             <Navbar />
-            <button onClick={() => db.auth().signOut()}>Chao</button>
-            <Link to="/signup">
+            <Link to="/">
+                <button onClick={() => db.auth().signOut()}>Chao</button>
+            </Link>
+            <Link to="/signupps">
                 <button> Registrar nuevo usuario</button>
             </Link>
             <Title />

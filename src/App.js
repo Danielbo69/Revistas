@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Home from './comps/Home';
-import Login from './comps/Login';
-import HomeUpload from './comps/HomeUpload';
-import SignUp from './comps/SignUp';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import HomeUpload from './pages/HomeUpload';
+import SignUp from './pages/SignUp';
 import { AuthProvider } from './comps/Auth';
 import PrivateRoute from './private/PrivateRoute'
 
@@ -15,7 +15,7 @@ function App() {
         <div className="App">
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signupps" component={SignUp} />
           <PrivateRoute exact path="/loged" component={HomeUpload} />
 
 

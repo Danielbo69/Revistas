@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import useFirestore from '../hooks/useFirestore';
-import Title from './Title'
-import Navbar from './Navbar'
+import Title from '../comps/Title'
+import Navbar from '../comps/Navbar'
 const space = "                            "
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="container">
       <Navbar />
-      <Link to="/login">Login</Link>
+      <Link to="/login"><button className="button">Iniciar sesión</button></Link>
 
       <Title />
       <div className='ContentImg row'>
