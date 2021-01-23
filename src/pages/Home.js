@@ -7,22 +7,25 @@ const space = "                            "
 
 const Home = () => {
   const { docs } = useFirestore('books');
+  for(let x of docs){
+    console.log(x)
+  } 
   return (
-    <div className="container">
-      <Navbar />
-      <Link to="/login"><button className="button">Iniciar sesión</button></Link>
-
-      <Title />
+    <div>
+      <div>
+        <Navbar />
+        <Title />
+      </div>
       <div className='ContentImg row'>
         {docs && docs.map(doc => (
-          <div className="col-md-3" key={doc.id}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Pdf-2127829.png" alt="uploaded pdf"
+          <div className="col-md-3" style={{ padding: '10px', textAlign: 'center' }} key={doc.id}>
+            <img src={doc.image} alt="uploaded pdf"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             />
             <div className='info-grid'>
-              <p>informacion de la revista</p>
+              <p>Name: {doc.name}</p>
             </div>
             <div className='row'>
               <div className='col-sm button'>

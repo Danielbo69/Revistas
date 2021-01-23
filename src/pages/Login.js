@@ -10,7 +10,7 @@ const Login = ({ history }) => {
             const { email, password } = event.target.elements;
             try {
                 await db.auth().signInWithEmailAndPassword(email.value, password.value);
-                history.push("/loged");
+                history.push("/Home");
             } catch (error) {
                 alert(error);
             }

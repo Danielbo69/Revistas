@@ -7,9 +7,10 @@ const SignUp = ({ history }) => {
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
         const { email, password } = event.target.elements;
+        console.log(event)
         try {
             await db.auth().createUserWithEmailAndPassword(email.value, password.value);
-            history.push("/loged");
+            history.push("/Home");
 
         } catch (error) {
             alert(error);
