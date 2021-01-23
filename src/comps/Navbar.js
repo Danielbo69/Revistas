@@ -16,14 +16,14 @@ const NavbarGrid = () => {
                 <Link to="/Upload" className="buttonLogin">Upload Magazines</Link>
                 </Nav>
                 <Nav>
-                    <Link to="/login" className="buttonLogin">Log in</Link>
+                    <Link to="/Login" className="buttonLogin">Log in</Link>
                     {/* <NavDropdown title="" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">profile</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={() => db.auth().signOut()}>Sign off</NavDropdown.Item>
                     </NavDropdown> */}
                 </Nav>
-            </Navbar.Collapse>Admin
+            </Navbar.Collapse>
         </Navbar>
     )
 }

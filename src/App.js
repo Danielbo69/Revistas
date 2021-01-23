@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/Home" component={Home} />
           <Route exact path="/Upload" component={UploadForm} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/Login" component={Login} />
           <Route exact path="/signupps" component={SignUp} />
           {/* <PrivateRoute exact path="/loged" component={Home} /> */}
 
