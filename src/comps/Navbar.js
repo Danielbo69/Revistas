@@ -2,8 +2,7 @@ import React from 'react';
 import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import db from '../firebase/config';
-
-
+ 
 
 const NavbarGrid = () => {
     return (
@@ -17,11 +16,11 @@ const NavbarGrid = () => {
                 </Nav>
                 <Nav>
                     <Link to="/Login" className="buttonLogin">Log in</Link>
-                    {/* <NavDropdown title="" id="collasible-nav-dropdown">
+                    <NavDropdown title="" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">profile</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={() => db.auth().signOut()}>Sign off</NavDropdown.Item>
-                    </NavDropdown> */}
+                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

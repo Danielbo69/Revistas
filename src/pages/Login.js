@@ -8,9 +8,15 @@ const Login = ({ history }) => {
         async (event) => {
             event.preventDefault();
             const { email, password } = event.target.elements;
+            const User = {
+                email: email.value,
+                pass: password.value
+            }
+            // console.log(User)
             try {
-                await db.auth().signInWithEmailAndPassword(email.value, password.value);
+                await db.auth().signInWithEmailAndPassword(User.email, User.pass);
                 history.push("/Home");
+                localStorage.setItem("Authe", JSON.stringify(User))
             } catch (error) {
                 alert(error);
             }
@@ -20,17 +26,17 @@ const Login = ({ history }) => {
     const { currentUser } = useContext(AuthContext);
 
     if (currentUser) {
-        return <Redirect to="/loged" />
+        return <Redirect to="/Login" />
     }
 
     return (
         <div>
             <form onSubmit={handleLogin}>
-                <header className="nav animated fadeInDown" align="center">
-                    <label>
+                <header className="nav animated fadeInDown" style={{textAlign: 'center'}}>
+                    <label style={{width: '100%'}}>
                         Solo funcionarios del Centro Experimental de Estudios Latinoamericanos
                         pueden ingresar mediante este login
-        </label>
+                    </label>
                     {/* <img id="ima" src="./home/style/assets/favicon.png" width="55px" alt="Logo">                   */}
                 </header>
 
@@ -52,7 +58,7 @@ const Login = ({ history }) => {
                             <span id="reqOutput"></span>
                             <button type="submit" className="bton">
                                 Entrar
-            </button>
+                            </button>
                         </div>
                     </div>
                 </div>
