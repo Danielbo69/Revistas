@@ -6,6 +6,9 @@ import Navbar from '../comps/Navbar'
 const UploadForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [magazineName, setMagazineName] = useState("")
+  const [category, setCategory] = useState("")
+  const [body, setBody] = useState(null)
 
   const types = ['application/pdf'];
 
@@ -21,8 +24,14 @@ const UploadForm = () => {
     }
   };
 
-  const handleSubmit = ({ e }) => {
-    console.log(e)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    let body = {
+      magazineName,
+      category,
+      file
+    }
+    setBody(body)
   }
 
 
@@ -30,14 +39,14 @@ const UploadForm = () => {
     <div>
       <div className="Container" style={{ margin: '30px' }}>
         <label style={{ textAlign: 'center', width: '100%' }}>Upload Magazine</label>
-        <Form noValidate className="row forms">
+        <Form noValidate className="row forms" onSubmit = {handleSubmit}>
           <Form.Group className="col-md-6" controlId="formBasicNameMagazine">
             <Form.Label>Magazine name</Form.Label>
-            <Form.Control type="text" placeholder="Magazine name" />
+            <Form.Control type="text" placeholder="Magazine name" onChange={(e) => setMagazineName(e.target.value)} />
           </Form.Group>
           <Form.Group className="col-md-6" controlId="formBasicCategory">
             <Form.Label>Category</Form.Label>
-            <Form.Control type="text" placeholder="Category" />
+            <Form.Control type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value) } />
           </Form.Group>
           <Form.Group className="col-md-12" style={{ marginTop: '30px' }} controlId="formBasicFile">
             <Form.Label style={{ margin: '10px' }}>Upload File</Form.Label>
@@ -46,11 +55,11 @@ const UploadForm = () => {
 
           </Form.Group>
           <FormGroup className="col-12 botonSubmit" style={{ marginTop: '30px' }}>
-            <Button variant="primary" onSubmit={handleSubmit}>
+            <Button variant="primary">
               <div className="output">
-                {/*error && <div className="error">{error}</div>}
+                {error && <div className="error">{error}</div>}
               {file && <div>{file.name}</div>}
-              {file && <ProgressBar file={file} setFile={setFile} />*/}
+              {body && <ProgressBar body={body} setBody={setBody} />}
               </div>
               Submit
       </Button>
