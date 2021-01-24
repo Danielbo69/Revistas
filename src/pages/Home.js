@@ -24,7 +24,8 @@ const Home = () => {
 
 
   const handleSearch = event => {
-    setDocsCopies(docs.filter(valor => valor.magazineName.toLowerCase().includes(event.target.value.toLowerCase()) ))
+    setDocsCopies(docs.filter(valor => valor.magazineName.toLowerCase().includes(event.target.value.toLowerCase())
+      && docs.filter(valor => valor.category.toLowerCase().includes(event.target.value.toLowerCase()))))
   }
 
   return (
@@ -32,7 +33,7 @@ const Home = () => {
       <div>
         <Navbar />
         <Title />
-        <div style = {{ display: 'flex', justifyContent:'center', marginBottom: '2%' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2%' }}>
           <input className="searchBar" type="text" placeholder="Busqueda" onChange={handleSearch} />
         </div>
       </div>
