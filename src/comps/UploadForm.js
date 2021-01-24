@@ -25,6 +25,7 @@ const UploadForm = () => {
   };
 
   const handleSubmit = (e) => {
+    console.log("E", e)
     e.preventDefault()
     let body = {
       magazineName,
@@ -55,14 +56,14 @@ const UploadForm = () => {
 
           </Form.Group>
           <FormGroup className="col-12 botonSubmit" style={{ marginTop: '30px' }}>
-            <Button variant="primary">
               <div className="output">
-                {error && <div className="error">{error}</div>}
+              {error && <div className="error">{error}</div>}
               {file && <div>{file.name}</div>}
               {body && <ProgressBar body={body} setBody={setBody} />}
               </div>
+            <Button variant="primary" type = "submit">
               Submit
-      </Button>
+            </Button>
           </FormGroup>
         </Form>
       </div>
