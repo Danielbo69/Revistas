@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useFirestore from '../hooks/useFirestore';
 import Title from '../comps/Title'
 import UploadForm from '../comps/UploadForm'
@@ -8,11 +8,32 @@ const space = "                            "
 
 const Home = () => {
     const { docs } = useFirestore('books');
+
+    const [term, setTerm] = useState('')
+
+    const handleSearch = (event) => {
+        setTerm(event.target.value)
+
+    }
+
+    const search = (doc) => {
+        if (term === "") {
+            return doc
+        }
+        else if (doc.magazineName.toLowerCase().includes(term.toLowerCase())) {
+            return doc
+        }
+    }
+
+
     return (
         <div className="container">
             <NavbarUp />
 
             <Title />
+            <div>
+                <input className="searchBar" type="text" placeholder="Busqueda" onChange={handleSearch} />
+            </div>
             <UploadForm />
             <div className='ContentImg row'>
                 {docs && docs.map(doc => (

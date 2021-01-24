@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useFirestore from '../hooks/useFirestore';
 import Title from '../comps/Title'
 import Navbar from '../comps/Navbar'
@@ -9,11 +9,33 @@ const Home = () => {
   for (let x of docs) {
     console.log(x)
   }
+
+  const [term, setTerm] = useState('')
+
+  const handleSearch = (event) => {
+    setTerm(event.target.value)
+    console.log(event.target.value)
+
+  }
+
+  const search = (doc) => {
+    if (term === "") {
+      return doc
+    }
+    else if (doc.magazineName.toLowerCase().includes(term.toLowerCase())) {
+      return doc
+    }
+  }
+
+
   return (
     <div>
       <div>
         <Navbar />
         <Title />
+        <div>
+          <input className="searchBar" type="text" placeholder="Busqueda" onChange={handleSearch} />
+        </div>
       </div>
       <div className='ContentImg row'>
         {docs && docs.map(doc => (

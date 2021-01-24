@@ -40,14 +40,14 @@ const UploadForm = () => {
     <div>
       <div className="Container" style={{ margin: '30px' }}>
         <label style={{ textAlign: 'center', width: '100%' }}>Upload Magazine</label>
-        <Form noValidate className="row forms" onSubmit = {handleSubmit}>
+        <Form noValidate className="row forms" onSubmit={handleSubmit}>
           <Form.Group className="col-md-6" controlId="formBasicNameMagazine">
             <Form.Label>Magazine name</Form.Label>
             <Form.Control type="text" placeholder="Magazine name" onChange={(e) => setMagazineName(e.target.value)} />
           </Form.Group>
           <Form.Group className="col-md-6" controlId="formBasicCategory">
             <Form.Label>Category</Form.Label>
-            <Form.Control type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value) } />
+            <Form.Control type="text" placeholder="Category" onChange={(e) => setCategory(e.target.value)} />
           </Form.Group>
           <Form.Group className="col-md-12" style={{ marginTop: '30px' }} controlId="formBasicFile">
             <Form.Label style={{ margin: '10px' }}>Upload File</Form.Label>
