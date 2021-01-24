@@ -19,9 +19,9 @@ const NavbarGridUp = () => {
                     <NavDropdown title="" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">profile</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <Link to="/">
+                        <Link to="/Home">
                             <NavDropdown.Item onClick={() => db.auth().signOut()}>
-                                <Link to="/"></Link>Sign off</NavDropdown.Item>
+                                <Link to="/Home"></Link>Sign off</NavDropdown.Item>
                         </Link>
                     </NavDropdown>
                 </Nav>

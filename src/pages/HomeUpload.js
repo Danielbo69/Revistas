@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useFirestore from '../hooks/useFirestore';
 import Title from '../comps/Title'
 import UploadForm from '../comps/UploadForm'
 import NavbarUp from '../comps/NavbarUp'
-import { Link } from 'react-router-dom';
 const space = "                            "
 
 const Home = () => {
     const { docs } = useFirestore('books');
 
-    const [term, setTerm] = useState('')
+    const [docsCopies, setDocsCopies] = useState(null)
 
-    const handleSearch = (event) => {
-        setTerm(event.target.value)
+    useEffect(() => {
 
+        if (!!docs) {
+            setDocsCopies(docs)
+        }
+
+
+    }, [docs])
+
+    for (let x of docs) {
+        console.log(x)
     }
 
-    const search = (doc) => {
-        if (term === "") {
-            return doc
+    const onDelete = async () => {
+        if (window.confirm("Seguro que quiere eliminar este archivo?")) {
+            await useFirestore.collection('books').doc.id.delete();
         }
-        else if (doc.magazineName.toLowerCase().includes(term.toLowerCase())) {
-            return doc
-        }
+    }
+
+
+    const handleSearch = event => {
+        setDocsCopies(docs.filter(valor => valor.magazineName.toLowerCase().includes(event.target.value.toLowerCase()) || valor.category.toLowerCase().includes(event.target.value.toLowerCase())))
     }
 
 
@@ -30,13 +39,14 @@ const Home = () => {
         <div className="container">
             <NavbarUp />
 
+            <UploadForm />
             <Title />
-            <div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2%' }}>
                 <input className="searchBar" type="text" placeholder="Busqueda" onChange={handleSearch} />
             </div>
-            <UploadForm />
+
             <div className='ContentImg row'>
-                {docs && docs.map(doc => (
+                {docsCopies && docsCopies.map(doc => (
                     <div className="col-md-3" style={{ padding: '10px', textAlign: 'center' }} key={doc.id}>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Pdf-2127829.png" alt="uploaded pdf"
                             initial={{ opacity: 0 }}
@@ -47,6 +57,9 @@ const Home = () => {
                             <p> {doc.magazineName}</p>
                             <p> {doc.category}</p>
                         </div>
+                        <button type="button" className="close" aria-label="Close" onClick={onDelete}>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <div className='row'>
                             <div className='col-sm button'>
                                 <a

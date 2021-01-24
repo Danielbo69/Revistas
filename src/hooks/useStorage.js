@@ -10,7 +10,7 @@ const useStorage = ({ file, category, magazineName }) => {
     // references
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection('books');
-    
+
     storageRef.put(file).on('state_changed', (snap) => {
       let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
       setProgress(percentage);
@@ -22,7 +22,7 @@ const useStorage = ({ file, category, magazineName }) => {
       await collectionRef.add({ url, createdAt, category, magazineName });
       setUrl(url);
     });
-  }, [file]);
+  }, [file, category, magazineName]);
 
   return { progress, url, error };
 }
