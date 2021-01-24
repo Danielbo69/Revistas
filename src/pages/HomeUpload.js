@@ -6,7 +6,7 @@ import NavbarUp from '../comps/NavbarUp'
 const space = "                            "
 
 const Home = () => {
-    const { docs } = useFirestore('books');
+    const { docs, deleteData } = useFirestore('books');
 
     const [docsCopies, setDocsCopies] = useState(null)
 
@@ -23,10 +23,12 @@ const Home = () => {
         console.log(x)
     }
 
-    const onDelete = async () => {
+    const onDelete = async (id) => {
         if (window.confirm("Seguro que quiere eliminar este archivo?")) {
-            await useFirestore.collection('books').doc.id.delete();
-        }
+            await deleteData(id)
+            /* Aqui va un alert en caso de que quieras decir que fue eliminado */
+            
+        }   
     }
 
 
@@ -57,7 +59,7 @@ const Home = () => {
                             <p> {doc.magazineName}</p>
                             <p> {doc.category}</p>
                         </div>
-                        <button type="button" className="close" aria-label="Close" onClick={onDelete}>
+                        <button type="button" className="close" aria-label="Close" onClick={() => onDelete(doc.id)}>
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div className='row'>

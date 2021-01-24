@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { projectFirestore } from '../firebase/config';
+import db from '../firebase/config'
 
 const useFirestore = (collection) => {
   const [docs, setDocs] = useState([]);
@@ -20,7 +21,9 @@ const useFirestore = (collection) => {
     // a component using the hook unmounts
   }, [collection]);
 
-  return { docs };
+  const deleteData = async id => projectFirestore.collection('books').doc(id).delete()
+
+  return { docs, deleteData };
 }
 
 export default useFirestore;
