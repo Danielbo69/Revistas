@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import db from '../firebase/config';
 
 
-const NavbarGrid = () => {
+const NavbarGridUp = () => {
     return (
         <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
             <Navbar.Brand href="#home">Revistas</Navbar.Brand>
@@ -12,15 +12,16 @@ const NavbarGrid = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <Link to="/Home" className="buttonLogin">Home</Link>
-                    <Link to="/Login" className="buttonLogin">Upload Magazines</Link>
+                    {<Link to="/signupps" className="buttonLogin">Register new members</Link>}
                 </Nav>
                 <Nav>
-                    <Link to="/Login" className="buttonLogin">Log in</Link>
+                    <Link to="/Login" className="buttonLogin">Admin</Link>
                     <NavDropdown title="" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">profile</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <Link to="/Home">
-                            <NavDropdown.Item onClick={() => db.auth().signOut()}>Sign off</NavDropdown.Item>
+                        <Link to="/">
+                            <NavDropdown.Item onClick={() => db.auth().signOut()}>
+                                <Link to="/"></Link>Sign off</NavDropdown.Item>
                         </Link>
                     </NavDropdown>
                 </Nav>
@@ -28,4 +29,4 @@ const NavbarGrid = () => {
         </Navbar>
     )
 }
-export default NavbarGrid;
+export default NavbarGridUp;
