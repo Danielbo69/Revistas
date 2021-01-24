@@ -24,8 +24,7 @@ const Home = () => {
 
 
   const handleSearch = event => {
-    setDocsCopies(docs.filter(valor => valor.magazineName.toLowerCase().includes(event.target.value.toLowerCase())
-      && docs.filter(valor => valor.category.toLowerCase().includes(event.target.value.toLowerCase()))))
+    setDocsCopies(docs.filter(valor => valor.magazineName.toLowerCase().includes(event.target.value.toLowerCase()) || valor.category.toLowerCase().includes(event.target.value.toLowerCase()) ))
   }
 
   return (
