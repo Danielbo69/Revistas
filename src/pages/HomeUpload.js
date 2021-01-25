@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useFirestore from '../hooks/useFirestore';
 import Title from '../comps/Title'
-import UploadForm from '../comps/UploadForm'
 import NavbarUp from '../comps/NavbarUp'
 const space = "                            "
 
@@ -20,15 +19,15 @@ const Home = () => {
     }, [docs])
 
     for (let x of docs) {
-        console.log(x)
+        // console.log(x)
     }
 
     const onDelete = async (id) => {
         if (window.confirm("Seguro que quiere eliminar este archivo?")) {
             await deleteData(id)
             /* Aqui va un alert en caso de que quieras decir que fue eliminado */
-            
-        }   
+
+        }
     }
 
 
@@ -38,44 +37,45 @@ const Home = () => {
 
 
     return (
-        <div className="container">
+        <div>
             <NavbarUp />
-
-            <UploadForm />
             <Title />
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2%' }}>
-                <input className="searchBar" type="text" placeholder="Busqueda" onChange={handleSearch} />
-            </div>
-
             <div className='ContentImg row'>
-                {docsCopies && docsCopies.map(doc => (
-                    <div className="col-md-3" style={{ padding: '10px', textAlign: 'center' }} key={doc.id}>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Pdf-2127829.png" alt="uploaded pdf"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1 }}
-                        />
-                        <div className='info-grid'>
-                            <p> {doc.magazineName}</p>
-                            <p> {doc.category}</p>
-                        </div>
-                        <button type="button" className="close" aria-label="Close" onClick={() => onDelete(doc.id)}>
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div className='row'>
-                            <div className='col-sm button'>
-                                <a
-                                    target="__blank"
-                                    className="image__download"
-                                    href={doc.url}
-                                    download
-                                >
-                                    <button>{space} Ver Pdf</button>
-                                </a>
-                            </div>
+                <div className="contentpages row">
+                    <div className="searchBar">
+                        <div className="col-md-3">
+                            <input className="form-control" type="text" placeholder="Busqueda" onChange={handleSearch} />
                         </div>
                     </div>
-                ))}
+                    {docsCopies && docsCopies.map(doc => (
+                        <div className="col-md-3" style={{ padding: '10px', textAlign: 'center' }} key={doc.id}>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Pdf-2127829.png" alt="uploaded pdf"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 1 }}
+                            />
+                            <div className='info-grid'>
+                                <label className="col-md-12" style={{ textAlign: 'left' }}>Tittle: {doc.magazineName}</label>
+                                <label className="col-md-12" style={{ textAlign: 'left' }}>Category: {doc.category}</label>
+                            </div>
+                            <div className='row' style={{ justifyContent: 'center' }}>
+                                <div className='col button' style={{ padding: '0', paddingTop: '10px', marginRight: '1px' }}>
+                                    <a
+                                        target="__blank"
+                                        className="image__download"
+                                        href={doc.url}
+                                        download
+                                    >
+                                        <button>{space}See</button>
+                                    </a>
+                                </div>
+                                <div className='col button' style={{ padding: '0', paddingTop: '10px' }}>
+                                    <button onClick={() => onDelete(doc.id)}>Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

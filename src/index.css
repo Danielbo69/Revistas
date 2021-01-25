@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 
+/** SCROLL CUSTOM STYLE **/
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-track {/**nada**/}
+
+::-webkit-scrollbar-thumb {
+  background-color:#212529;
+}
+
 :root {
   --primary: #efb6b2;
   --secondary: #4e4e4e;
@@ -27,9 +38,42 @@
   text-align: center;
 }
 .title h2 {
-  margin-top: 25px;
+  margin-top: 10px;
   font-size: 2em;
 }
+
+.titlePro {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.infoPro {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.infoPro label{
+  font: bold;
+}
+
+.imagePro {
+  display: flex;
+  justify-content: center;
+}
+
+.imagePro img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+
+}
+
+.ContentPro {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+
 
 /* upload form styles */
 
@@ -47,15 +91,10 @@ form {
 }
 
 .searchBar {
-  margin-top: 30px;
-  width: 300px;
-  height: 50px;
-  font-size: 30px;
-  padding-left: 10px;
-  justify-content: center;
-  align-items: center;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
+  margin: 10px;
+  padding: 10px;
 }
 
 .botonSubmit {
@@ -72,16 +111,19 @@ form {
 /* image grid styles */
 
 .ContentImg {
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   padding-left: 30px;
   padding-right: 30px;
 }
+
 
 .ContentImg img {
   width: 100px;
   height: 100px;
 }
 
+.contentpages {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
 /* modal styles */
 .backdrop {
   position: fixed;
@@ -112,12 +154,6 @@ form {
   flex: 0 0 auto;
   width: 33.3333333333%;
   padding: 25px;
-}
-
-.info-grid label {
-  font: bold;
-  color: #000000;
-  font-size: 5px;
 }
 
 .button button {
@@ -179,11 +215,38 @@ form {
   .navbar-expand-sm .navbar-toggler {
     display: none;
   }
+  .navbar-expand-sm .navbar-nav .dropdown-menu {
+    margin: -75px !important;
+    width: 100px !important;
+    margin-top: 0px !important;
+    min-width: 8.8vw !important;
+    position: absolute;
+  }
+}
+
+@media (min-width: 676px){
+  .navbar-expand-sm .navbar-nav .dropdown-menu {
+    margin: -75px !important;
+    width: 100px !important;
+    margin-top: 0px !important;
+    min-width: 8.8vw !important;
+    position: absolute;
+  }
+}
+@media (min-width: 576px){
+  .navbar-expand-sm .navbar-nav .dropdown-menu {
+    margin: -75px !important;
+    width: 100px !important;
+    margin-top: 0px !important;
+    min-width: 8.8vw !important;
+    position: absolute;
+  }
 }
 
 .dropdown-menu {
-  margin: -75px !important;
-  margin-top: 0 !important;
+  margin: -75px;
+  width: 111px !important;
+  background-color: #212529 !important;
 }
 
 /*Login*/
@@ -297,8 +360,11 @@ body {
 }
 
 #textmuted {
-  margin-top: 22px;
-  color: #fff;
+  color: #fff !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .inpt {
   outline: none;
@@ -354,12 +420,19 @@ body {
 }
 
 /* FOOTER */
-.footer {
-  position: absolute;
+
+.footerLogin {
+  position: fixed;
   width: 100%;
-  bottom: 0;
-  background-color: #020642;
-  border-top: 1px solid #ddd;
+  background-color: #030743;
+  height: 17.9vh;
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  background-color: #030743;
+  height: 11.9vh;
 }
 
 #reqOutput {
@@ -390,6 +463,10 @@ code {
   .footer {
     bottom: -56px;
   }
+  .ContentPro {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 /* Landscape */
@@ -397,11 +474,19 @@ code {
   .footer {
     bottom: -85px;
   }
+  .ContentPro {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 /* S3 Landscape */
 @media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {
   .footer {
     bottom: -105px !important;
+  }
+  .ContentPro {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import db from '../firebase/config';
+import NavbarUp from '../comps/NavbarUp'
 
 const SignUp = ({ history }) => {
 
@@ -18,10 +19,8 @@ const SignUp = ({ history }) => {
     }, [history])
     return (
         <div>
+            <NavbarUp />
             <form onSubmit={handleSignUp}>
-                <header className="nav animated fadeInDown" align="center">
-                    {/* <img id="ima" src="./home/style/assets/favicon.png" width="55px" alt="Logo">                   */}
-                </header>
 
                 <div className="container">
                     <h2 id="p-title" className="animated fadeInDown"> Panel de Control </h2>
@@ -37,12 +36,6 @@ const SignUp = ({ history }) => {
 
                 </div>
             </form>
-
-            <footer className="footer" align="center" >
-                <div className="container" align="center">
-                    <p className="text-muted" id="textmuted"> &copy; 2020 Magazine Group. Todos los derechos reservados. </p>
-                </div>
-            </footer>
         </div>
     )
 }

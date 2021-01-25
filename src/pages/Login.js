@@ -16,7 +16,7 @@ const Login = ({ history }) => {
             try {
                 await db.auth().signInWithEmailAndPassword(User.email, User.pass);
                 history.push("/loged");
-                localStorage.setItem("Authe", JSON.stringify(User))
+                localStorage.setItem("email", User.email)
             } catch (error) {
                 alert(error);
             }
@@ -63,15 +63,6 @@ const Login = ({ history }) => {
                     </div>
                 </div>
             </form>
-
-            <footer className="footer" align="center">
-                <div className="container" align="center">
-                    <p className="text-muted" id="textmuted">
-                        {" "}
-            &copy; 2020 Magazine Group. Todos los derechos reservados.{" "}
-                    </p>
-                </div>
-            </footer>
         </div>
     );
 };
