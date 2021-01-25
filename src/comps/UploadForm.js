@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProgressBar from './ProgressBar';
 import { Button, Form, FormGroup } from 'react-bootstrap';
-import Navbar from '../comps/Navbar'
+
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
@@ -56,12 +56,12 @@ const UploadForm = () => {
 
           </Form.Group>
           <FormGroup className="col-12 botonSubmit" style={{ marginTop: '30px' }}>
-              <div className="output">
+            <div className="output">
               {error && <div className="error">{error}</div>}
               {file && <div>{file.name}</div>}
               {body && <ProgressBar body={body} setBody={setBody} />}
-              </div>
-            <Button variant="primary" type = "submit">
+            </div>
+            <Button variant="primary" type="submit">
               Submit
             </Button>
           </FormGroup>

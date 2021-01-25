@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { projectFirestore } from '../firebase/config';
-import db from '../firebase/config'
+
 
 const useFirestore = (collection) => {
   const [docs, setDocs] = useState([]);
@@ -11,7 +11,7 @@ const useFirestore = (collection) => {
       .onSnapshot(snap => {
         let documents = [];
         snap.forEach(doc => {
-          documents.push({...doc.data(), id: doc.id});
+          documents.push({ ...doc.data(), id: doc.id });
         });
         setDocs(documents);
       });
